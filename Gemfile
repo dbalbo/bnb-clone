@@ -54,4 +54,5 @@ end
    gem 'capybara'
    gem 'factory_girl_rails'
    gem 'simplecov', require: false
+   gem 'rspec-rails'
  end
