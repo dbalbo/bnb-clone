@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722190057) do
+
+ActiveRecord::Schema.define(version: 20150722205359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,4 +54,22 @@ ActiveRecord::Schema.define(version: 20150722190057) do
   add_index "views", ["email"], name: "index_views_on_email", unique: true, using: :btree
   add_index "views", ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true, using: :btree
 
+create_table "listings", force: :cascade do |t|
+  t.string   "name"
+  t.string   "location"
+  t.integer  "user_id"
+  t.boolean  "amenity"
+  t.integer  "price"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+end
+
+create_table "reviews", force: :cascade do |t|
+  t.string   "name"
+  t.string   "text"
+  t.integer  "listing_id"
+  t.integer  "user_id"
+  t.integer  "rating"
+  t.datetime "created_at"
+  t.datetime "updated_at"
 end
