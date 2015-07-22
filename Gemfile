@@ -50,6 +50,7 @@ group :development do
   gem "letter_opener"
 end
  group :test do
+   gem 'rspec-rails'
    gem 'shoulda-matchers'
    gem 'capybara'
    gem 'factory_girl_rails'
