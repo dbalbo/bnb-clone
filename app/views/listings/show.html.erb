@@ -1,3 +1,78 @@
-<div class='listing_title_info'>
-
+<div class="listing_title_info">
+  <%= image_tag @listing.image.url(:original), :class => "full_width_image" %>
 </div>
+
+<div class="listing_info row">
+  <div class="col-md-2 col-md-offset-1">
+    <p>
+      <%= image_tag @listing.user.avatar.url(:medium), :class => "img-circle", :width => "100px" %>
+    </p>
+    <h5><%= @listing.user.name %></h5>
+  </div>
+  <div class="col-md-4">
+    <h3><%= @listing.name %> | <%= @listing.location %></h3>
+    <h5><%= render "layouts/rating", rateable: @listing %> (<%= @listing.reviews.count %>)</h5>
+    <h5><%= @listing.fans.count %> favorites</h5>
+  </div>
+  <div class="col-md-2">
+    <% if user_signed_in? %>
+    <% if @listing.user == current_user || current_user.admin? %>
+    <%= link_to "Edit Listing", edit_listing_path(@listing), class: "btn btn-warning"%>
+    <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger"%>
+    <% elsif !current_user.favorited?(@listing) %>
+    <%= link_to "Add as Favorite", favorites_path(favorite: {user_id: current_user.id,
+      listing_id: @listing.id}),
+      method: :post,
+      class: "btn btn-success" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row listing_description">
+    <div class="col-md-4 col-md-offset-1">
+      <h4>About This Listing</h4>
+      <p><%= @listing.description%></p>
+      <hr>
+      Prices <span class="pull-right"><strong><%= @listing.price %></strong></span>
+      <hr>
+      Guests <span class="pull-right"><strong><%= @listing.guest_number%><br></strong></span>
+      <hr>
+      Toilets <span class="pull-right"><%= has_amenity(@listing.toilet) %></span>
+      <hr>
+      Shower <span class="pull-right"><%= has_amenity(@listing.shower) %></span>
+      <hr>
+      Outlet <span class="pull-right"><%= has_amenity(@listing.outlet) %></span>
+      <hr>
+      Pets <span class="pull-right"><%= has_amenity(@listing.pets) %></span>
+    </div>
+  </div>
+
+  <hr>
+  <div class="listing_reviews">
+    <div class="col-md-4 col-md-offset-1">
+      <h4><%= @listing.reviews.count %> Reviews | <%= render "layouts/rating", rateable: @listing %>
+        <%= link_to "Add Review", new_listing_review_path(@listing), class: "btn btn-success pull-right" %>
+      </h4>
+      <hr>
+      <ul class="list-unstyled">
+        <% @listing.reviews.each do |review| %>
+        <li>
+          <%= image_tag review.user.avatar.url(:thumb), :class => "img-circle", :width => "60px" %>
+          <%= review.user.name %>
+          <div>
+            <%= review.text %>
+            <%= render "layouts/rating", rateable: review %>
+            <% if user_signed_in? %>
+            <% if review.user == current_user || current_user.admin? %>
+            <%= link_to "Edit Review", edit_listing_review_path(@listing, review) %>
+            <%= link_to "Delete Review", listing_review_path(@listing, review), method: :delete %>
+            <% end %>
+            <% end %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  

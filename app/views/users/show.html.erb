@@ -11,10 +11,19 @@
 
 <h4>Listings</h4>
 <ul>
+  <% current_user.listings.each do |listing| %>
+  <li><%= link_to listing.name, listing_path(listing) %></li>
+  <% end %>
+</ul>
+
+
+<h4>Reviews</h4>
+<ul>
   <% current_user.reviews.each do |review| %>
   <li><%= review.text %>
-    <%= render 'layouts/rating', rateable: review %>
+    <%= render "layouts/rating", rateable: review %>
   </li>
+
 
   <% end %>
 </ul>

@@ -3,7 +3,7 @@
   <h3> Air Conditioning! </h3>
 
   <div class='row popular-images'>
-    <% @air_conditioning_homes[0..1].each do |listing| %>
+    <% @popular_yards[0..1].each do |listing| %>
     <div class='col-md-4 col-md-offset-1'>
       <%= link_to listing_path(listing) do %>
       <%= image_tag listing.image.url(:medium), class: "img-circle popular-image" %>
@@ -12,9 +12,9 @@
     <% end %>
   </div>
 
-  <% if @air_conditioning_homes.length > 1 %>
+  <% if @popular_yards.length > 1 %>
   <div class='row popular-images'>
-    <% @air_conditioning_homes[2..3].each do |listing|
+    <% @popular_yards[2..3].each do |listing| %>
       <div class='col-md-4 col-md-offset-1'>
       <%= link_to listing_path(listing) do %>
         <%= image_tag listing.image.url(:medium), class: 'img-circle popular-image' %>

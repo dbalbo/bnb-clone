@@ -1,1 +1,27 @@
-<h1>Listings</h1>
+<h4>Refine your search for a specific price range</h4>
+<form action="<%= listings_path %>" method = "get">
+  <%= hidden_field_tag "search_string", @search_string %>
+  <input id="ex2" type="text" name="slider" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[10,1000]"/>
+  <br>
+  <%= submit_tag "Refine Search", class: "btn btn-primary" %>
+  <script>
+  var slider = new Slider('#ex2', {});
+  </script>
+</form>
+
+<h3> <%= @search_results.length %> results for <strong><%= @search_string %></strong>
+  <% if @price_range %>
+  with price between $<%= @price_range.first %> and $<%= @price_range.last %>
+  <% end %>
+</h3>
+
+<ul>
+  <% @search_results.each do |listing| %>
+  <li>
+    <div>
+      <%= image_tag listing.image.url(:thumb) %>
+    </div>
+    <%= link_to listing.name, listing_path(listing) %>
+  </li>
+  <% end %>
+</ul>
