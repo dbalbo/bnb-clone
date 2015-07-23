@@ -16,6 +16,9 @@ gem 'devise'
 gem 'paperclip', "~> 4.3"
 gem 'textacular', '~> 3.0'
 gem 'bootstrap-slider-rails'
+gem "pure-css-rails"
+
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

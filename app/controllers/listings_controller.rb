@@ -16,10 +16,10 @@ class ListingsController < ApplicationController
     def create
       listing = current_user.listings.new(listing_params)
       if listing.save
-        flash[:notice] = "You've created a listing"
+        flash[:notice] = "You've successfully created a listing!"
         redirect_to listing_path(listing)
       else
-        flash[:alert] = "There was an error"
+        flash[:alert] = "You're doing it wrong."
         redirect_to :back
       end
     end

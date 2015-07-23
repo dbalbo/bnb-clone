@@ -12,10 +12,10 @@ class ReviewsController < ApplicationController
     @listing.reviews << @review
     current_user.reviews << @review
     if @review.save
-      flash[:notice] = 'You have created a review.'
+      flash[:notice] = 'nice job creating a review, Siskel and Ebert.'
       redirect_to listing_path(@listing)
     else
-      flash[:alert] = 'There was an error.'
+      flash[:alert] = 'You are doing it wrong.'
       redirect_to :back
     end
   end
