@@ -9,12 +9,14 @@
   </script>
 </form> -->
 
-<h3> <%= @search_results.length %> results for <strong><%= @search_string %></strong>
+<!-- <h3> <%= @search_results.length %> results for <strong><%= @search_string %></strong>
   <% if @price_range %>
   with price between $<%= @price_range.first %> and $<%= @price_range.last %>
   <% end %>
-</h3>
+</h3> -->
+<!-- # all of the above is additional functionality that was a bit buggy, so it is commented out until I can get a work-around -->
 
+<!-- This below--lets you search by any keyword that matches one in the listing name -->
 <ul>
   <% @search_results.each do |listing| %>
   <li>
