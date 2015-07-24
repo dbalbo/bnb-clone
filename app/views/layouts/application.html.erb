@@ -32,10 +32,10 @@
       <% end %>
       <ul class='nav navbar-nav'>
         <% if user_signed_in? %>
-        <div class="dropdown">
-          <a href="#" class="dropdown-toggle profile_dropdown" data-toggle="dropdown" role="button" aria-haspopup="true"
+        <!-- <div class="dropdown">
+          <a href="#" class="dropdown-toggle profile_dropdown" data-toggle="dropdown" id="dropdownMenu1" role="button" aria-haspopup="true"
           aria-expanded="true"><%=current_user.name %> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1"> -->
             <li><%= link_to 'Profile', profile_path %></li>
             <li> <%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
