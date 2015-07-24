@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+PDX Propertez is an air bnb clone of sorts which highlights properties with air conditioning in whatever
+area you live in. It allows a user to sign in-upload their profile picture and info, and be able to log in using their e
+email and username.
+It allows them to upload photos of their property and a checkedbox list of amenities. It allows to edit delete and add properties. It allows a search bar in the top tobe able to search for
+properties in a specific area (i.e "Portland" or "the best part of town").
 
 
+* This app uses ruby version 2.2.2
+
+* This app uses postgresql
+
+* Just type rake db: create then rake db:migrate into the terminal, after firing up the postgres in the terminal.
+
+bundle install to load all of the gems in the Gemfile, then fire up the rails server by typing "rails s" (without the quotation marks)
+in the browser window--type in "localhost:3000"
+
+to test: use Rspec. Type in rspec into the terminal and watch the magic!
+
+
+
+MIT license Use this at your leisure--it still has bugs. 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

@@ -1,0 +1,22 @@
+<%= form_for [@listing, @review] do |f| %>
+<div class="form-group">
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+</div>
+<div class="form-group">
+  <%= f.label :rating%>
+  <div class="form-group">
+    <%= f.label :rating, "1"%>
+    <%= f.radio_button :rating, 1%>
+    <%= f.label :rating, "2"%>
+    <%= f.radio_button :rating, 2%>
+    <%= f.label :rating, "3"%>
+    <%= f.radio_button :rating, 3%>
+    <%= f.label :rating, "4"%>
+    <%= f.radio_button :rating, 4%>
+    <%= f.label :rating, "5"%>
+    <%= f.radio_button :rating, 5%>
+  </div>
+</div>
+<%= f.submit "Submit"%>
+<% end %>

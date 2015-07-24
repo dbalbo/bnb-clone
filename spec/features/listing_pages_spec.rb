@@ -33,7 +33,7 @@ describe "adding a listing" do
     click_on "List Your Space"
     fill_in "Name", with: ""
     click_on "Submit"
-    expect(page).to have_content("There was an error")
+    expect(page).to have_content("You're doing it wrong")
   end
 
 end
